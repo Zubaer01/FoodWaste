@@ -1,0 +1,47 @@
+package com.example.food;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        // Reference to views
+        TextView textView = findViewById(R.id.textView3);
+        EditText usernameEdit = findViewById(R.id.editTextText);
+        EditText passwordEdit = findViewById(R.id.editTextText2);
+        Button loginButton = findViewById(R.id.button2);
+        Button registerButton = findViewById(R.id.Register);
+
+        // Login button logic
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = usernameEdit.getText().toString();
+                String password = passwordEdit.getText().toString();
+
+                // Show username and password in textView or a welcome message
+                textView.setText("Welcome to my app, " + username + "!");
+            }
+        });
+
+        // Register button logic (You can expand this later)
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Registration feature coming soon!");
+            }
+        });
+    }
+}
